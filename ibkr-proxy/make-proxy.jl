@@ -3,7 +3,7 @@ macro read(file)
     Meta.parse(read(file, String)) |> esc
 end
 
-"Create a nginx proxy server configuration file."
+"Create a nginx proxy server configuration file. Listen at localhost's `listen` port."
 function make_proxy(; IBKR="https://localhost:5050", 
     listen="5051", burst=5, crt="cert.crt", key=".key")
 
