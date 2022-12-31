@@ -1,4 +1,4 @@
-
+"Evaluate the content of `file`."
 macro read(file)
     Meta.parse(read(file, String)) |> esc
 end
