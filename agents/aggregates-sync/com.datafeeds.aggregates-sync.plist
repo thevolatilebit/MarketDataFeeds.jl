@@ -1,0 +1,25 @@
+<!-- MacOS launchd sync agent: provide polygon.io API key or IBKR WebClient host as env vars -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.MarketDataFeeds.aggregates-sync</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/julia1.8</string>
+        <string>--project=.</string>
+        <string>sync.jl</string>
+    </array>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/bin:/usr/bin:/usr/local/bin</string>
+        <!--<key>POLYGON_API_KEY</key>-->
+        <!--<key>IBKR_HOST</key>-->
+    </dict>
+    <!--<key>StandardOutPath</key>-->
+    <!--<key>StandardErrorPath</key>-->
+    <!--<key>WorkingDirectory</key>-->
+</dict>
+</plist>
