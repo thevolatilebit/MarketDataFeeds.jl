@@ -2,7 +2,9 @@
 
 A lightweight, easily extensible interface to a range of financial data feeds (Polygon.io, IBKR WebClient API).
 
-You may find some examples - tests in [test/runtests.jl](test/runtests.jl).
+You may find some testable examples in [test/runtests.jl](test/runtests.jl).
+
+If you are interested in [nginx](nginx.com) proxy to IBKR WebClient API (to enforce IBKR pacing limits), you may be interested in config generator [make-proxy.jl](ibkr-proxy/make-proxy.jl).
 
 ## Historical Market Data Retrieval
 
@@ -44,7 +46,7 @@ Update HDF5 files with aggregates in `paths` (either a file or a directory) up t
 
 Sync a HDF5 file with aggregates up to time `to`.
 
-    <<Pro tip:>> Data synchronization agents are provided in [agents/aggregates_sync](agents/aggregates_sync).
+**Pro tip:** Data synchronization agents are provided in [agents/aggregates_sync](agents/aggregates_sync).
 
 <a id='MarketDataFeeds.change_provider!' href='#MarketDataFeeds.change_provider!'>#</a>
 **`MarketDataFeeds.change_provider!`** &mdash; *Function*.
