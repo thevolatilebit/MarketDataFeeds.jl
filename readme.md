@@ -2,9 +2,9 @@
 
 A lightweight, easily extensible interface to a range of financial data feeds (Polygon.io, IBKR WebClient API).
 
-You may find some testable examples in [test/runtests.jl](test/runtests.jl).
+You may find some examples in [test/runtests.jl](test/runtests.jl).
 
-If you are interested in [nginx](https://www.nginx.com) proxy to IBKR WebClient API (to enforce IBKR pacing limits), you may be interested in config generator [make-proxy.jl](ibkr-proxy/make-proxy.jl).
+If interested in a [NGINX](https://www.nginx.com) proxy to IBKR WebClient (to peacefully enforce the pacing limits), take a look at a config generator [make-proxy.jl](ibkr-proxy/make-proxy.jl).
 
 ## Historical Market Data Retrieval
 
