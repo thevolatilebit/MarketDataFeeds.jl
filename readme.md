@@ -7,7 +7,6 @@ You may find some examples in [test/runtests.jl](test/runtests.jl).
 If you are interested in a [NGINX](https://www.nginx.com) proxy to IBKR WebClient (to peacefully enforce the pacing limits), take a look at a config generator [make-proxy.jl](ibkr-proxy/make-proxy.jl).
 
 ## Historical Market Data Retrieval
-
 <a id='MarketDataFeeds.aggregates' href='#MarketDataFeeds.aggregates'>#</a>
 **`MarketDataFeeds.aggregates`** &mdash; *Function*.
 
@@ -23,8 +22,10 @@ Keyword arguments generally correspond to request parameters for respective data
 
 **Data Sources**
 
-  * `:POLYGON`: polygon.io REST API; requires `apiKey` (`POLYGON_API_KEY` environment var by default). For keyword arguments, see [polygon.io's docs](https://polygon.io/docs/stocks/get_v2_aggs_ticker__stocksticker__range__multiplier___timespan___from___to),
-  * `:IBKR`: ibkr.com WebClient API. For keyword arguments, see [IBKR docs](https://www.interactivebrokers.com/api/doc.html#tag/Market-Data/paths/~1hmds~1history/get).
+  * `:POLYGON`: polygon.io REST API; requires `apiKey` (`POLYGON_API_KEY` environment var by default). For keyword arguments, see [polygon.io's docs](https://polygon.io/docs/stocks/get_v2_aggs_ticker__stocksticker__range__multiplier___timespan___from___to)
+  * `:IBKR`: IBKR WebClient API; for keyword arguments, see [IBKR docs](https://www.interactivebrokers.com/api/doc.html#tag/Market-Data/paths/~1hmds~1history/get)
+
+
 
 <a id='MarketDataFeeds.aggregates_h5' href='#MarketDataFeeds.aggregates_h5'>#</a>
 **`MarketDataFeeds.aggregates_h5`** &mdash; *Function*.
@@ -42,9 +43,17 @@ Provide keyword argument `path` for the file name. Other keyword arguments are p
 <a id='MarketDataFeeds.sync!' href='#MarketDataFeeds.sync!'>#</a>
 **`MarketDataFeeds.sync!`** &mdash; *Function*.
 
-Update HDF5 files with aggregates in `paths` (either a file or a directory) up to time `to`.
+```julia
+sync!(paths; to=now(UTC))
+```
 
-Sync a HDF5 file with aggregates up to time `to`.
+Update HDF5 files with aggregates in `paths` (a path or a vector of paths, incl. directories) up to time `to`.
+
+```julia
+sync!(f::HDF5.File; to=now(UTC))
+```
+
+Update a HDF5 file with aggregates up to time `to`.
 
 **Pro tip:** Data synchronization agents are provided in [agents/aggregates_sync](agents/aggregates_sync).
 
@@ -55,7 +64,7 @@ Sync a HDF5 file with aggregates up to time `to`.
 change_provider!(source="IBKR", paths; <keyword arguments>)
 ```
 
-Change the data feed of market data stores in `paths` (a directory, a vector of paths, or a path) to `source`. The original group `bars` will be replaced by a derived view; file's metadata will be updated accordingly (special care has to be taken with timespan conversion - see `IBKR_PERIODS`, `POLYGON_PERIODS`). 
+Change the feed of market data stores in `paths` (a path or a vector of paths, incl. directories) to `source`. The original group `bars` will be replaced by a view into it. File's metadata will be updated accordingly (special care has to be taken with timespan conversion - see `IBKR_PERIODS`, `POLYGON_PERIODS`). 
 
 Reduces to `_change_provider`.
 
@@ -74,4 +83,4 @@ Keyword arguments generally correspond to request parameters for respective data
 
 **Data Sources**
 
-  * `:IBKR`: ibkr.com WebClient API. For keyword arguments, see [IBKR docs](https://www.interactivebrokers.com/api/doc.html#tag/Market-Data/paths/~1md~1snapshot/get).
+  * `:IBKR`: IBKR WebClient; for keyword arguments, see [IBKR docs](https://www.interactivebrokers.com/api/doc.html#tag/Market-Data/paths/~1md~1snapshot/get)

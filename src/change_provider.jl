@@ -6,7 +6,7 @@ end
 
 """
     change_provider!(source="IBKR", paths; <keyword arguments>)
-Change the data feed of market data stores in `paths` (a directory, a vector of paths, or a path) to `source`. The original group `bars` will be replaced by a derived view; file's metadata will be updated accordingly (special care has to be taken with timespan conversion - see `IBKR_PERIODS`, `POLYGON_PERIODS`). 
+Change the feed of market data stores in `paths` (a path or a vector of paths, incl. directories) to `source`. The original group `bars` will be replaced by a view into it. File's metadata will be updated accordingly (special care has to be taken with timespan conversion - see `IBKR_PERIODS`, `POLYGON_PERIODS`). 
 
 Reduces to `_change_provider`(@ref).
 """

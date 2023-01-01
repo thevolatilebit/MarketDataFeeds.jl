@@ -9,8 +9,8 @@ Return a tuple of series attributes and a matrix where bars correspond to rows, 
 Keyword arguments generally correspond to request parameters for respective data providers.
 
 # Data Sources
- - `:POLYGON`: polygon.io REST API; requires `apiKey` (`POLYGON_API_KEY` environment var by default). For keyword arguments, see [polygon.io's docs](https://polygon.io/docs/stocks/get_v2_aggs_ticker__stocksticker__range__multiplier___timespan___from___to),
- - `:IBKR`: ibkr.com WebClient API. For keyword arguments, see [IBKR docs](https://www.interactivebrokers.com/api/doc.html#tag/Market-Data/paths/~1hmds~1history/get).
+ - `:POLYGON`: polygon.io REST API; requires `apiKey` (`POLYGON_API_KEY` environment var by default). For keyword arguments, see [polygon.io's docs](https://polygon.io/docs/stocks/get_v2_aggs_ticker__stocksticker__range__multiplier___timespan___from___to)
+ - `:IBKR`: IBKR WebClient API; for keyword arguments, see [IBKR docs](https://www.interactivebrokers.com/api/doc.html#tag/Market-Data/paths/~1hmds~1history/get)
 """
 aggregates(; kwargs...) = aggregates(Val(:POLYGON); kwargs...)
 aggregates(source::Union{String, Symbol}; kwargs...) = aggregates(val(source); kwargs...)

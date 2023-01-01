@@ -7,7 +7,7 @@ Get instantaneous market snapshot.
 Keyword arguments generally correspond to request parameters for respective data providers.
 
 # Data Sources
- - `:IBKR`: ibkr.com WebClient API. For keyword arguments, see [IBKR docs](https://www.interactivebrokers.com/api/doc.html#tag/Market-Data/paths/~1md~1snapshot/get).
+ - `:IBKR`: IBKR WebClient; for keyword arguments, see [IBKR docs](https://www.interactivebrokers.com/api/doc.html#tag/Market-Data/paths/~1md~1snapshot/get)
 """
 snapshot(; kwargs...) = snapshot(Val(:IBKR); kwargs...)
 snapshot(source::Union{String, Symbol}; kwargs...) = snapshot(val(source); kwargs...)

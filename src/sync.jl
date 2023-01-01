@@ -15,7 +15,10 @@ function get_object_paths(paths)
     paths_
 end
 
-"Update HDF5 files with aggregates in `paths` (either a file or a directory) up to time `to`."
+"""
+    sync!(paths; to=now(UTC))
+Update HDF5 files with aggregates in `paths` (a path or a vector of paths, incl. directories) up to time `to`.
+"""
 function sync!(paths="."; to=now(UTC))
     for path in get_object_paths(paths)
         f = HDF5.h5open(path, "r+")
@@ -51,7 +54,10 @@ function aggregate_opts(::Val{:IBKR}, f::HDF5.File; _...)
     (; conid, bar, outsideRth, period)
 end
 
-"Sync a HDF5 file with aggregates up to time `to`."
+"""
+    sync!(f::HDF5.File; to=now(UTC))
+Update a HDF5 file with aggregates up to time `to`.
+"""
 function sync!(f::HDF5.File; to=now(UTC))
     if HDF5.read_attribute(f, "sync")
         feed = HDF5.read_attribute(f, "feed")
