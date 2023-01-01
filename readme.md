@@ -55,7 +55,7 @@ sync!(f::HDF5.File; to=now(UTC))
 
 Update a HDF5 file with aggregates up to time `to`.
 
-**Pro tip:** Data synchronization agents are provided in [agents/aggregates_sync](agents/aggregates_sync).
+**Pro tip:** Data synchronization agents are provided in [agents/aggregates-sync](agents/aggregates-sync).
 
 <a id='MarketDataFeeds.change_provider!' href='#MarketDataFeeds.change_provider!'>#</a>
 **`MarketDataFeeds.change_provider!`** &mdash; *Function*.
