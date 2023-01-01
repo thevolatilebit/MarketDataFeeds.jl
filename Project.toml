@@ -1,6 +1,6 @@
 name = "MarketDataFeeds"
 uuid = "00ce253e-6fe2-4242-93e2-f78d124cabb1"
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 Dates = "ade2ca70-3891-5945-98fb-dc099432e06a"
