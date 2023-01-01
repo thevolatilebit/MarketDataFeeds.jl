@@ -4,7 +4,7 @@ A lightweight, easily extensible interface to a range of financial data feeds (P
 
 You may find some examples in [test/runtests.jl](test/runtests.jl).
 
-If interested in a [NGINX](https://www.nginx.com) proxy to IBKR WebClient (to peacefully enforce the pacing limits), take a look at a config generator [make-proxy.jl](ibkr-proxy/make-proxy.jl).
+If you are interested in a [NGINX](https://www.nginx.com) proxy to IBKR WebClient (to peacefully enforce the pacing limits), take a look at a config generator [make-proxy.jl](ibkr-proxy/make-proxy.jl).
 
 ## Historical Market Data Retrieval
 
